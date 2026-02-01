@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  tomcat:
+    max-swallow-size: 5MB
+
+spring:
+  application:
+    name: SprigSecurity
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_security
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+logging:
+  file:
+    name: ./logs/${spring.application.name}.log
+  level:
+    root: INFO
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+
+security:
+  authentication:
+    jwt:
+      jwt-key: FEzDNgOkTM2kxqZKSgNlMva8cVb1/zjft10VsMcyYvI=
