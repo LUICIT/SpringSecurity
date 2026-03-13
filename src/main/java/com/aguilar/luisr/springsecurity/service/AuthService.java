@@ -180,15 +180,11 @@ public class AuthService {
     }
 
     private String normalizeEmail(LoginModel loginModel) {
-        // Si LoginModel es record -> loginModel.email()
-        // Si es class -> loginModel.getEmail()
         String raw = (loginModel.getEmail() == null) ? null : loginModel.getEmail();
         return raw == null ? null : raw.trim().toLowerCase();
     }
 
     private String getPassword(LoginModel loginModel) {
-        // Si LoginModel es record -> loginModel.password()
-        // Si es class -> loginModel.getPassword()
         return loginModel.getPassword();
     }
 

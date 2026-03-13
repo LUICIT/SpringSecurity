@@ -61,7 +61,7 @@ public class AuthController {
     public ResponseEntity<UserModel> registerAccount(@Valid @RequestBody RegisterUserModel registerUserModel) {
         UserModel registeredUser = authService.registerUser(registerUserModel);
 //        mailService.sendActivationEmail(registeredUser);
-        LOG.debug("ResponseEntity created for User: {}", registeredUser);
+        LOG.info("ResponseEntity created for User: {}", registeredUser);
         return ResponseEntity.ok(registeredUser);
     }
 
@@ -84,6 +84,7 @@ public class AuthController {
             }
     )
     @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<TokenModel> login(@Valid @RequestBody LoginModel loginModel) {
         /*if (isPasswordLengthInvalid(managedUserVM.getPassword())) {
             throw new InvalidPasswordException();
